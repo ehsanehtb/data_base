@@ -1,0 +1,23 @@
+{% extends 'new_app/base.html'%}
+{% load static %}
+{% block body_block %}
+
+<div class="jumbotron">
+  <div class="container">
+    {% if registered %}
+      <h1>تشکر برای ثبت نام!</h1>
+    {% else %}
+        <h1>اینجا ثبت نام کنید:</h1>
+        <h3>فرم ها را پر کنید:</h3>
+
+        <form enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          <input type="submit" name="" value="sign_up">
+
+        </form>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
